@@ -1,2 +1,2 @@
 # Pandas-Logger
-Enables logging of dataframes and series methods
+Enables logging of dataframe and series methods
