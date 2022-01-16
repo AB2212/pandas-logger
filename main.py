@@ -1,7 +1,6 @@
 import pandas as pd
 from pandas_logger import enable_pandas_logging, disable_pandas_logging
 
-
 def random_operations(df):
     df = df.drop_duplicates()
     df = df.drop_duplicates(subset="b")
@@ -20,6 +19,7 @@ if __name__ == "__main__":
     enable_pandas_logging()
     df = pd.DataFrame([[1, -2], [3, 4], [3, pd.NA]], columns=["a", "b"])
     print(random_operations(df.copy()))
-    print("Disabling Logging")
-    disable_pandas_logging()
-    print(random_operations(df))
+    print(pd.test('fast'))
+    # print("Disabling Logging")
+    # disable_pandas_logging()
+    # print(random_operations(df))

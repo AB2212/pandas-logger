@@ -55,7 +55,7 @@ def enable_pandas_logging():
 
         __IS_WRAPPED_ALREADY__ = True
     
-    
+
 def disable_pandas_logging():
     global __IS_WRAPPED_ALREADY__
     if __IS_WRAPPED_ALREADY__:
@@ -69,8 +69,3 @@ def disable_pandas_logging():
         #         setattr(pd, func, getattr(pd, func).__wrapped__)
 
         __IS_WRAPPED_ALREADY__ = False
-
-
-
-
-    
