@@ -1,6 +1,8 @@
+import sys
+sys.path.append("../pandas_logger")
+
 import pandas as pd
 from pandas_logger import logger
-
 
 def random_operations(df):
     df = df.drop_duplicates()
