@@ -8,6 +8,7 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
 __IS_WRAPPED_ALREADY__ = False
 
+
 def log_pandas_methods(func):
     @wraps(func)
     def inner(*args, **kwargs):
@@ -31,11 +32,13 @@ def log_func_details(func, *args, **kwargs):
     keywords.update(kwargs)
     logger.info(f"Provided Arguments: {keywords}")
 
+
 def wrap_methods(cls, wrapper, methods):
     for key, value in cls.__dict__.items():
         if hasattr(value, "__call__"):
             if value.__name__ in methods:
                 setattr(cls, key, wrapper(value))
+
 
 def unwrap_methods(cls, methods):
     for key, value in cls.__dict__.items():
@@ -43,6 +46,7 @@ def unwrap_methods(cls, methods):
             if value.__name__ in methods:
                 if hasattr(value, "__wrapped__"):
                     setattr(cls, key, value.__wrapped__)
+
 
 def enable_pandas_logging():
     global __IS_WRAPPED_ALREADY__
@@ -54,7 +58,7 @@ def enable_pandas_logging():
         #     setattr(pd, func, log_pandas_methods(getattr(pd, func)))
 
         __IS_WRAPPED_ALREADY__ = True
-    
+
 
 def disable_pandas_logging():
     global __IS_WRAPPED_ALREADY__
