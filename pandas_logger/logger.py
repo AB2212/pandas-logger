@@ -2,7 +2,7 @@ from functools import wraps
 import inspect
 import pandas as pd
 import logging
-import settings
+import pandas_logger.settings as settings
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)

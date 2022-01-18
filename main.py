@@ -1,5 +1,6 @@
 import pandas as pd
-from pandas_logger import enable_pandas_logging, disable_pandas_logging
+from pandas_logger.logger import enable_pandas_logging, disable_pandas_logging
+
 
 def random_operations(df):
     df = df.drop_duplicates()
