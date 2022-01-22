@@ -1,3 +1,6 @@
+# Pandas-Logger
+Enables logging of pandas dataframe and series methods
+# Example
 ```python
 import os
 os.chdir("../..")
