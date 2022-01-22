@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import pytest
 from pandas_logger import logger
 
 logger.enable_pandas_logging()
