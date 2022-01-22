@@ -45,7 +45,7 @@ logger.info(f'Modified dataframe: \n{df_modified}')
     PDLogger: 2022-01-22 19:43:40,053 - Initial shape: (3, 2)
     PDLogger: 2022-01-22 19:43:40,063 - Final shape: (2, 2)
     PDLogger: 2022-01-22 19:43:40,068 - Modified dataframe: 
-        a   b
+       a   b
     1  3   4
     0  5  -2
     PDLogger: 2022-01-22 19:43:40,070 - Disable Logging
