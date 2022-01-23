@@ -15,12 +15,3 @@ from pandas.tests.frame.conftest import *
 from pandas.tests.frame.methods.test_drop_duplicates import *
 from pandas.tests.frame.methods.test_sort_values import *
 from pandas.tests.frame.methods.test_dropna import *
-
-# tests_to_exclude = [
-#     "test_drop_duplicates_pos_args_deprecation",
-#     "TestDataFrameMissingData",
-#     "test_sort_values_pos_args_deprecation",
-# ]
-# for name in tests_to_exclude:
-#     if name in globals():
-#         del globals()[name]
