@@ -7,6 +7,7 @@ from typing import Any, Callable, Union, final
 import pandas as pd
 
 import pandas_logger.settings as settings
+import re
 
 __IS_WRAPPED_ALREADY__ = False
 
@@ -21,20 +22,32 @@ def log_pandas_methods(func: Callable[..., Any], logger=None) -> Callable[..., A
 
     @wraps(func)
     def inner(*args, **kwargs):
+        
+        method_name = func.__name__
+        # get instance name
+        code_context = inspect.stack()[1].code_context
+        # TODO: move to utils
+        # FIXME: code_context may be multiple lines and 
+        var_name = re.findall(f"([A-Za-z\_]+[A-Za-z0-9\_]+)\.{method_name}",
+         " ".join(code_context).strip())
+        if len(var_name) == 1:
+            logger.info(f"Name: {var_name[0]}")
 
-        logger.info(f"Calling {func.__name__}")
-        log_method_details(logger, func, *(args[1:]), **kwargs)
-
+        logger.info(f"Calling method: {method_name}")
+        if args:
+            log_method_details(logger, func, *(args[1:]), **kwargs)
+        
         initial_info = None
         final_info = None
 
         if args and isinstance(args[0], (pd.DataFrame, pd.Series)):
+            
             initial_info = get_info(args[0])
         ret_val = func(*args, **kwargs)
 
         if ret_val is not None and isinstance(ret_val, (pd.DataFrame, pd.Series)):
             final_info = get_info(ret_val)
-        elif ret_val is None:
+        elif ret_val is None and args is not None:
             final_info = get_info(args[0])
 
         log_info(logger, initial_info, final_info)
@@ -46,6 +59,8 @@ def log_pandas_methods(func: Callable[..., Any], logger=None) -> Callable[..., A
 
 def log_method_details(logger, func: Callable[..., Any], *args, **kwargs):
 
+    if not args:
+        return
     keywords = dict((zip(inspect.getfullargspec(func).args[1:], args)))
     keywords.update(kwargs)
     logger.info(f"Provided Arguments: {keywords}")
@@ -57,6 +72,9 @@ def get_info(df: Union[pd.DataFrame, pd.Series]) -> dict:
         return
 
     info = dict()
+    info['name'] = None
+    if hasattr(df, 'name') and isinstance(df.name, str,):
+        info['name'] = df.name
     info["shape"] = df.shape
     info["index"] = df.index.tolist()
 
@@ -68,6 +86,9 @@ def get_info(df: Union[pd.DataFrame, pd.Series]) -> dict:
 
 
 def log_info(logger, initial_info: dict, final_info: dict):
+
+    if initial_info.get('name', None) is not None:
+        logger.info(f"Name:  {initial_info['name']}")
 
     logger.info(f"Initial shape: {initial_info['shape']}")
     logger.info(f"Final shape: {final_info['shape']}")

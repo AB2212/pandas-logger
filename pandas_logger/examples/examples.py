@@ -14,10 +14,10 @@ logger = logging.getLogger(__name__)
 
 def random_operations(df):
     df = df.drop_duplicates()
-    df = df.drop_duplicates(subset="b")
     df.sort_values("a", inplace=True)
-    df.dropna(inplace=True)
-    return df
+    new_df = df.drop_duplicates(subset="b")
+    new_df.dropna(inplace=True)
+    return new_df
 
 
 if __name__ == "__main__":
