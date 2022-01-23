@@ -67,7 +67,7 @@ def get_info(df: Union[pd.DataFrame, pd.Series]) -> dict:
     return info
 
 
-def log_info_difference(logger, initial_info: dict, final_info: dict):
+def log_info(logger, initial_info: dict, final_info: dict):
 
     logger.info(f"Initial shape: {initial_info['shape']}")
     logger.info(f"Final shape: {final_info['shape']}")
