@@ -27,29 +27,37 @@ df_modified = random_operations(df.copy())
 logger.info(f'Modified dataframe: \n{df_modified}')
 ```
 
-    PDLogger: 2022-01-22 19:43:40,027 - Enable Logging
-    PDLogger: 2022-01-22 19:43:40,033 - Calling drop_duplicates
-    PDLogger: 2022-01-22 19:43:40,035 - Provided Arguments: {}
-    PDLogger: 2022-01-22 19:43:40,036 - Initial shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,038 - Final shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,039 - Calling drop_duplicates
-    PDLogger: 2022-01-22 19:43:40,041 - Provided Arguments: {'subset': 'b'}
-    PDLogger: 2022-01-22 19:43:40,042 - Initial shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,045 - Final shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,046 - Calling sort_values
-    PDLogger: 2022-01-22 19:43:40,047 - Provided Arguments: {'by': 'a', 'inplace': True}
-    PDLogger: 2022-01-22 19:43:40,048 - Initial shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,050 - Final shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,051 - Calling dropna
-    PDLogger: 2022-01-22 19:43:40,052 - Provided Arguments: {'inplace': True}
-    PDLogger: 2022-01-22 19:43:40,053 - Initial shape: (3, 2)
-    PDLogger: 2022-01-22 19:43:40,063 - Final shape: (2, 2)
-    PDLogger: 2022-01-22 19:43:40,068 - Modified dataframe: 
-        a   b
-    1  3   4
-    0  5  -2
-    PDLogger: 2022-01-22 19:43:40,070 - Disable Logging
-    PDLogger: 2022-01-22 19:43:40,084 - Modified dataframe: 
+    PDLogger: 2022-01-23 09:14:39,046 - Enable Logging
+    PDLogger: 2022-01-23 09:14:39,049 - Calling drop_duplicates
+    PDLogger: 2022-01-23 09:14:39,050 - Provided Arguments: {}
+    PDLogger: 2022-01-23 09:14:39,052 - Initial shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,053 - Final shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,054 - Rows dropped: 0
+    PDLogger: 2022-01-23 09:14:39,055 - Columns dropped: 0
+    PDLogger: 2022-01-23 09:14:39,056 - Calling drop_duplicates
+    PDLogger: 2022-01-23 09:14:39,058 - Provided Arguments: {'subset': 'b'}
+    PDLogger: 2022-01-23 09:14:39,060 - Initial shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,061 - Final shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,062 - Rows dropped: 0
+    PDLogger: 2022-01-23 09:14:39,063 - Columns dropped: 0
+    PDLogger: 2022-01-23 09:14:39,063 - Calling sort_values
+    PDLogger: 2022-01-23 09:14:39,064 - Provided Arguments: {'inplace': True}
+    PDLogger: 2022-01-23 09:14:39,066 - Initial shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,067 - Final shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,067 - Rows dropped: 0
+    PDLogger: 2022-01-23 09:14:39,070 - Columns dropped: 0
+    PDLogger: 2022-01-23 09:14:39,071 - Calling dropna
+    PDLogger: 2022-01-23 09:14:39,072 - Provided Arguments: {'inplace': True}
+    PDLogger: 2022-01-23 09:14:39,076 - Initial shape: (3, 2)
+    PDLogger: 2022-01-23 09:14:39,077 - Final shape: (2, 2)
+    PDLogger: 2022-01-23 09:14:39,078 - Rows dropped: 1
+    PDLogger: 2022-01-23 09:14:39,079 - Columns dropped: 0
+    PDLogger: 2022-01-23 09:14:39,083 - Modified dataframe: 
        a   b
     1  3   4
     0  5  -2
+    PDLogger: 2022-01-23 09:14:39,084 - Disable Logging
+    PDLogger: 2022-01-23 09:14:39,092 - Modified dataframe: 
+       a   b
+    1  3   4
+    0  5  -2    
