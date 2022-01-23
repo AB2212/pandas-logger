@@ -20,7 +20,7 @@ logger.info("Enable Logging")
 pdlogger.enable_logging(logger=logger)
 df = pd.DataFrame([[5, -2], [3, 4], [3, pd.NA]], columns=["a", "b"])
 df_modified = random_operations(df.copy())
-logger.info(f'Modified dataframe: \n {df_modified}')
+logger.info(f'Modified dataframe: \n{df_modified}')
 logger.info("Disable Logging")
 pdlogger.disable_logging()
 df_modified = random_operations(df.copy())
@@ -52,7 +52,7 @@ logger.info(f'Modified dataframe: \n{df_modified}')
     PDLogger: 2022-01-23 09:14:39,077 - Final shape: (2, 2)
     PDLogger: 2022-01-23 09:14:39,078 - Rows dropped: 1
     PDLogger: 2022-01-23 09:14:39,079 - Columns dropped: 0
-    PDLogger: 2022-01-23 09:14:39,083 - Modified dataframe: 
+    PDLogger: 2022-01-23 09:14:39,083 - Modified dataframe:
        a   b
     1  3   4
     0  5  -2
@@ -60,4 +60,4 @@ logger.info(f'Modified dataframe: \n{df_modified}')
     PDLogger: 2022-01-23 09:14:39,092 - Modified dataframe: 
        a   b
     1  3   4
-    0  5  -2    
+    0  5  -2
