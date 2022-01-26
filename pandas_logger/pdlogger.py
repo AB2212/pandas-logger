@@ -1,8 +1,7 @@
 import inspect
 import logging
 from functools import wraps
-from msilib.schema import Class
-from typing import Any, Callable, Union, final
+from typing import Any, Callable, Union
 
 import pandas as pd
 
